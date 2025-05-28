@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ChadAuto&House Rental{% endblock %}</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,fr,zh,ar,es,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+        #google_translate_element select {
+            font-size: 0.9em;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        /* Styles pour le diaporama */
+        .diaporama {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .diaporama-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .diaporama-image.active {
+            opacity: 1;
+        }
+        
+        .diaporama-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body onload="initLanguageSelector()">
+    <header>
+        <div class="logo">
+            <img src="{% static 'images/Kanem-removebg-preview.png' %}" alt="Logo du site">
+            <h1>ChadAuto&House Rental</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'core:home' %}">Home</a></li>
+                <li><a href="{% url 'core:about' %}">About</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Services</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'core:services' %}?type=car">Car</a>
+                        <a href="{% url 'core:services' %}?type=apartment">Appartment</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Booking</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'booking:car_list' %}">Car</a>
+                        <a href="{% url 'booking:apartment_list' %}">Appartment</a>
+                        <a href="{% url 'booking:reserve_both' %}" class="btn btn-primary">
+                            Both
+                        </a>
+                    </div>
+                </li>
+                <li><a href="{% url 'core:contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Google Translate Widget -->
+        <div id="google_translate_element" class="translate-widget"></div>
+    </header>
+
+    <main>
+        {% block diaporama %}
+        <!-- Section Diaporama -->
+        <section class="diaporama-section">
+            <div class="diaporama">
+                <img src="{% static 'images/20-removebg-preview.png' %}" alt="Image 1" class="diaporama-image active">
+                <img src="{% static 'images/A1.jpeg' %}" alt="Image 2" class="diaporama-image">
+                <img src="{% static 'images/10-removebg-preview.png' %}" alt="Image 3" class="diaporama-image">
+                <img src="{% static 'images/A10.jpeg' %}" alt="Image 4" class="diaporama-image">
+                <img src="{% static 'images/19-removebg-preview.png' %}" alt="Image 5" class="diaporama-image">
+                <img src="{% static 'images/A13.jpeg' %}" alt="Image 6" class="diaporama-image">
+            </div>
+        </section>
+        {% endblock %}
+
+        <!-- Messages d'alerte -->
+        {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+
+        {% comment %} {% block faq %}
+        <!-- Section FAQ -->
+        <section class="section-with-bg" style="background-image: url('{% static 'images/10-removebg-preview.png' %}');">
+            <div class="section-content">
+                <h2>Frequently Asked Questions (FAQ)</h2>
+                <div class="faq-item">
+                    <p><strong>Q: How can I make a reservation?</strong><br>
+                    A: You can make a reservation directly through our website or by contacting us via phone or email.</p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>Q: What payment methods do you accept?</strong><br>
+                    A: We accept credit cards, bank transfers, and cash payments.</p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>Q: Can I cancel or modify my reservation?</strong><br>
+                    A: Yes, you can cancel or modify your reservation up to 48 hours before the start date.</p>
+                </div>
+            </div>
+        </section>
+        {% endblock %} {% endcomment %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="{% static 'images/position.png' %}" alt="Location">
+                <p>Headquarters: </p>
+                <p>Bolo District, Charles de Gaulle Avenue, N'Djamena, Chad</p>
+            </div>
+
+            <div class="contact-item">
+                <img src="{% static 'images/phone.jpg' %}" alt="Phone">
+                <p>Contact: </p>
+                <p>+235 85707095</p>
+            </div>
+
+            <div class="contact-item">
+                <img src="{% static 'images/mail.jpg' %}" alt="Email">
+                <p>Email: </p>
+                <p>chadautohouse@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3901.0260197207517!2d15.038913072501593!3d12.110371233179785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDA2JzM3LjMiTiAxNcKwMDInMjkuNCJF!5e0!3m2!1sfr!2std!4v1746818606427!5m2!1sfr!2std" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{% static 'images/Kanem-removebg-preview.png' %}" alt="Logo" style="width: 50px; height: auto;">
+                <span style="font-size: 18px; font-weight: bold; white-space: nowrap;">ChadAuto&House Rental</span>
+            </div>
+        </div>
+        
+
+        <div class="privacy-policy">
+            <p>Privacy Policy - <strong>TechEdge</strong></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% comment %} <script src="{% static 'js/rental.js' %}"></script> {% endcomment %}
+    
+    <script type="text/javascript">
+        // Gestion de la traduction
+        function saveLanguageSelection(language) {
+            localStorage.setItem('selectedLanguage', language);
+        }
+        
+        function applyLanguageFromStorage() {
+            var selectedLanguage = localStorage.getItem('selectedLanguage');
+            if (selectedLanguage) {
+                var langSelector = document.querySelector('#google_translate_element select');
+                if (langSelector) {
+                    langSelector.value = selectedLanguage;
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,fr,zh,ar,es,hi',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                        autoDisplay: false
+                    }, 'google_translate_element');
+                    google.translate.TranslateElement.prototype.translate.apply(google.translate.TranslateElement.prototype, [selectedLanguage]);
+                }
+            }
+        }
+    
+        function initLanguageSelector() {
+            applyLanguageFromStorage();
+            
+            var langSelector = document.querySelector('#google_translate_element select');
+            if (langSelector) {
+                langSelector.addEventListener('change', function() {
+                    var selectedLang = langSelector.value;
+                    saveLanguageSelection(selectedLang);
+                    applyLanguageFromStorage();
+                });
+            }
+        }
+
+        // Script pour le diaporama
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialisation du diaporama
+            const images = document.querySelectorAll('.diaporama-image');
+            let currentIndex = 0;
+            
+            function showNextImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+            
+            // Change d'image toutes les 5 secondes
+            setInterval(showNextImage, 5000);
+            
+            // Initialisation du sélecteur de langue
+            initLanguageSelector();
+        });
+    </script>
+    
+    {% block extra_scripts %}{% endblock %}

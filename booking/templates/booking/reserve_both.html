@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Booking Form | ChadAuto&House{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">
+                        <i class="fas fa-calendar-check me-2"></i>
+                        {% if form.initial.vehicule and form.initial.appartement %}
+                            Combined Booking
+                        {% elif form.initial.vehicule %}
+                            Vehicle Booking
+                        {% elif form.initial.appartement %}
+                            Apartment Booking
+                        {% else %}
+                            New Booking
+                        {% endif %}
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="reservationForm">
+                        {% csrf_token %}
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Personal Information</h4>
+                                {{ form.nom_client|as_crispy_field }}
+                                {{ form.email|as_crispy_field }}
+                                {{ form.telephone|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Booking Period</h4>
+                                {{ form.date_debut|as_crispy_field }}
+                                {{ form.date_fin|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Vehicle</h4>
+                                {{ form.vehicule|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Apartment</h4>
+                                {{ form.appartement|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <h4 class="border-bottom pb-2 mb-3">Additional Message</h4>
+                        {{ form.message|as_crispy_field }}
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i>Submit Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Include Flatpickr for date pickers -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Configure date pickers
+    flatpickr('#id_date_debut', {
+        minDate: 'today',
+        dateFormat: 'Y-m-d',
+        locale: 'fr'
+    });
+
+    flatpickr('#id_date_fin', {
+        minDate: 'today',
+        dateFormat: 'Y-m-d',
+        locale: 'fr'
+    });
+
+    // Form validation
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        const vehicule = document.getElementById('id_vehicule').value;
+        const appartement = document.getElementById('id_appartement').value;
+
+        if (!vehicule && !appartement) {
+            e.preventDefault();
+            alert('You must select at least a vehicle or an apartment.');
+            return false;
+        }
+
+        const dateDebut = new Date(document.getElementById('id_date_debut').value);
+        const dateFin = new Date(document.getElementById('id_date_fin').value);
+
+        if (dateDebut > dateFin) {
+            e.preventDefault();
+            alert('End date must be after start date.');
+            return false;
+        }
+    });
+});
+</script>
+{% endblock %}
+
+
+{% comment %} {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Formulaire de Réservation | ChadAuto&House{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">
+                        <i class="fas fa-calendar-check me-2"></i>
+                        {% if form.initial.vehicule and form.initial.appartement %}
+                            Réservation Combinée
+                        {% elif form.initial.vehicule %}
+                            Réservation Véhicule
+                        {% elif form.initial.appartement %}
+                            Réservation Appartement
+                        {% else %}
+                            Nouvelle Réservation
+                        {% endif %}
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="reservationForm">
+                        {% csrf_token %}
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Informations Personnelles</h4>
+                                {{ form.nom_client|as_crispy_field }}
+                                {{ form.email|as_crispy_field }}
+                                {{ form.telephone|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Période de Réservation</h4>
+                                {{ form.date_debut|as_crispy_field }}
+                                {{ form.date_fin|as_crispy_field }}
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Véhicule</h4>
+                                {{ form.vehicule|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="border-bottom pb-2">Appartement</h4>
+                                {{ form.appartement|as_crispy_field }}
+                            </div>
+                        </div>
+                        
+                        <h4 class="border-bottom pb-2 mb-3">Message supplémentaire</h4>
+                        {{ form.message|as_crispy_field }}
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i>Envoyer la réservation
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Inclure Flatpickr pour les sélecteurs de date -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Configuration des datepickers
+    flatpickr('#id_date_debut', {
+        minDate: 'today',
+        dateFormat: 'Y-m-d',
+        locale: 'fr'
+    });
+    
+    flatpickr('#id_date_fin', {
+        minDate: 'today',
+        dateFormat: 'Y-m-d',
+        locale: 'fr'
+    });
+    
+    // Validation du formulaire
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        const vehicule = document.getElementById('id_vehicule').value;
+        const appartement = document.getElementById('id_appartement').value;
+        
+        if (!vehicule && !appartement) {
+            e.preventDefault();
+            alert('Vous devez sélectionner au moins un véhicule ou un appartement');
+            return false;
+        }
+        
+        const dateDebut = new Date(document.getElementById('id_date_debut').value);
+        const dateFin = new Date(document.getElementById('id_date_fin').value);
+        
+        if (dateDebut > dateFin) {
+            e.preventDefault();
+            alert('La date de fin doit être postérieure à la date de début');
+            return false;
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% comment %} {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Formulaire de Réservation</h2>
+    
+    {% if vehicule %}
+    <div class="alert alert-info mb-4">
+        <h4>Véhicule sélectionné:</h4>
+        <p>{{ vehicule.nom }}</p>
+        <img src="{{ vehicule.image.url }}" alt="{{ vehicule.nom }}" class="img-thumbnail" style="max-height: 200px;">
+    </div>
+    {% endif %}
+    
+    {% if appartement %}
+    <div class="alert alert-info mb-4">
+        <h4>Appartement sélectionné:</h4>
+        <p>{{ appartement.nom }}</p>
+        <img src="{{ appartement.image.url }}" alt="{{ appartement.nom }}" class="img-thumbnail" style="max-height: 200px;">
+    </div>
+    {% endif %}
+    
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary mt-3">Confirmer la réservation</button>
+    </form>
+</div>
+{% endblock %} {% endcomment %} 

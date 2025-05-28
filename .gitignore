@@ -1,0 +1,21 @@
+# Environnements virtuels
+env/
+venv/
+*.pyc
+__pycache__/
+
+# Fichiers de base de données
+*.sqlite3
+
+# Configs locales
+*.log
+*.pot
+*.pyc
+.DS_Store
+
+# Paramètres secrets
+.env
+
+# Dossiers médias et statiques générés
+/media
+/staticfiles

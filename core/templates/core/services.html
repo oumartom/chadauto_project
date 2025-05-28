@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {% if service_type == 'car' %}Our Vehicles
+  {% elif service_type == 'apartment' %}Our Apartments
+  {% else %}Our Services{% endif %} - ChadAuto&House Rental
+{% endblock %}
+
+{% block diaporama %}
+<section class="diaporama-section">
+    <div class="diaporama">
+        {% if service_type == 'car' %}
+            <img src="{% static 'images/20-removebg-preview.png' %}" alt="Car rental" class="diaporama-image active">
+            <img src="{% static 'images/10-removebg-preview.png' %}" alt="Car fleet" class="diaporama-image">
+        {% elif service_type == 'apartment' %}
+            <img src="{% static 'images/A1.jpeg' %}" alt="Apartment" class="diaporama-image active">
+            <img src="{% static 'images/A13.jpeg' %}" alt="Luxury apartment" class="diaporama-image">
+        {% else %}
+            <img src="{% static 'images/19-removebg-preview.png' %}" alt="Our services" class="diaporama-image active">
+            <img src="{% static 'images/A10.jpeg' %}" alt="All services" class="diaporama-image">
+        {% endif %}
+    </div>
+
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Navigation entre services -->
+    <div class="text-center mb-5">
+        <div class="btn-group" role="group">
+            <a href="{% url 'core:services' %}?type=all" 
+               class="btn btn-outline-primary {% if service_type == 'all' %}active{% endif %}">
+               All Services
+            </a>
+            <a href="{% url 'core:services' %}?type=car" 
+               class="btn btn-outline-primary {% if service_type == 'car' %}active{% endif %}">
+               Vehicles
+            </a>
+            <a href="{% url 'core:services' %}?type=apartment" 
+               class="btn btn-outline-primary {% if service_type == 'apartment' %}active{% endif %}">
+               Apartments
+            </a>
+        </div>
+    </div>
+
+    <!-- Affichage des services -->
+    {% if service_type == 'all' or service_type == 'car' %}
+    <section class="mb-5">
+        <h2 class="mb-4 border-bottom pb-2">Our Vehicles</h2>
+        {% if vehicules %}
+        <div class="row g-4">
+            {% for vehicule in vehicules %}
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="{{ vehicule.image.url }}" class="card-img-top" alt="{{ vehicule.nom }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ vehicule.nom }}</h5>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="{{ vehicule.get_absolute_url }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">No vehicles available at the moment.</div>
+        {% endif %}
+        <div class="text-center mt-4">
+            <a href="{% url 'booking:car_list' %}" class="btn btn-outline-primary">View All Vehicles</a>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if service_type == 'all' or service_type == 'apartment' %}
+    <section class="mb-5">
+        <h2 class="mb-4 border-bottom pb-2">Our Apartments</h2>
+        {% if appartements %}
+        <div class="row g-4">
+            {% for appartement in appartements %}
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="{{ appartement.image.url }}" class="card-img-top" alt="{{ appartement.nom }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ appartement.nom }}</h5>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="{{ appartement.get_absolute_url }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">No apartments available at the moment.</div>
+        {% endif %}
+        <div class="text-center mt-4">
+            <a href="{% url 'booking:apartment_list' %}" class="btn btn-outline-primary">View All Apartments</a>
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .diaporama-text {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+    }
+    .border-bottom {
+        border-color: #0d6efd !important;
+    }
+    .card {
+        transition: transform 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animation pour les cartes de services
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('animate__animated', 'animate__fadeInUp');
+            }, 100 * index);
+        });
+    });
+</script>
+{% endblock %}

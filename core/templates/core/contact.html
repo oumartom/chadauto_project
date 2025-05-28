@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Contact Us | ChadAuto&House{% endblock %}
+
+{% block diaporama %}
+<section class="diaporama-section">
+    <div class="diaporama">
+        <img src="{% static 'images/10.png' %}" alt="Contact Us" class="diaporama-image active">
+        <img src="{% static 'images/M1.png' %}" alt="Our Team" class="diaporama-image">
+    </div>
+</section>
+{% endblock %}
+{% block faq %}
+        <!-- Section FAQ -->
+        <section class="section-with-bg" style="background-image: url('{% static 'images/10-removebg-preview.png' %}');">
+            <div class="section-content">
+                <h2>Frequently Asked Questions (FAQ)</h2>
+                <div class="faq-item">
+                    <p><strong>Q: How can I make a reservation?</strong><br>
+                    A: You can make a reservation directly through our website or by contacting us via phone or email.</p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>Q: What payment methods do you accept?</strong><br>
+                    A: We accept credit cards, bank transfers, and cash payments.</p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>Q: Can I cancel or modify my reservation?</strong><br>
+                    A: Yes, you can cancel or modify your reservation up to 48 hours before the start date.</p>
+                </div>
+            </div>
+        </section>
+{% endblock %}
+{% block content %}
+<section class="section-with-bg" style="background-image: url('{% static 'images/10-removebg-preview.png' %}');">
+    <div class="section-content">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-item">
+            <p><strong>Q: How can I make a reservation?</strong><br>
+            A: You can make a reservation directly through our website or by contacting us via phone or email.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Q: What payment methods do you accept?</strong><br>
+            A: We accept credit cards, bank transfers, and cash payments.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>Q: Can I cancel or modify my reservation?</strong><br>
+            A: Yes, you can cancel or modify your reservation up to 48 hours before the start date.</p>
+        </div>
+    </div>
+</section>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h3><i class="fas fa-envelope me-2"></i>Send Us a Message</h3>
+                </div>
+                <div class="card-body">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    
+                    <form method="post" id="contactForm">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="nom" required>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control" name="sujet" required>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" name="message" rows="5" required></textarea>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3><i class="fas fa-map-marker-alt me-2"></i>Our Contact Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h4 class="border-bottom pb-2">Address</h4>
+                        <p class="mb-1"><i class="fas fa-building me-2"></i>Bolo District, Charles de Gaulle Avenue</p>
+                        <p><i class="fas fa-city me-2"></i>N'Djamena, Chad</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="border-bottom pb-2">Contact</h4>
+                        <p><i class="fas fa-phone me-2"></i>+235 85707095</p>
+                        <p><i class="fas fa-envelope me-2"></i>chadautohouse@gmail.com</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="border-bottom pb-2">Opening Hours</h4>
+                        <p class="mb-1"><i class="fas fa-clock me-2"></i>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                        <p><i class="fas fa-clock me-2"></i>Saturday: 9:00 AM - 1:00 PM</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.2604445213238!2d15.043044559263448!3d12.109292526330487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1119612522b88ddd%3A0x9e4c8cdf4b0ef804!2sResidence%20Abdelaziz%20Ahmat%20Taha...Abba%20Dabbagh!5e0!3m2!1sfr!2std!4v1741466172599!5m2!1sfr!2std" 
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .diaporama-text {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+    }
+    #contactForm label {
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        try {
+            const response = await fetch("{% url 'core:contact_api' %}", {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (data.status === 'success') {
+                alert('Message sent successfully!');
+                this.reset();
+            } else {
+                alert('Error: ' + (data.message || 'Please check the form'));
+            }
+        } catch (error) {
+            alert('Technical error: ' + error.message);
+        }
+    });
+</script>
+{% endblock %}
+
+
+{% comment %} {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Contactez-nous | ChadAuto&House{% endblock %}
+
+{% block diaporama %}
+<section class="diaporama-section">
+    <div class="diaporama">
+        <img src="{% static 'images/A1.jpg' %}" alt="Contactez-nous" class="diaporama-image active">
+        <img src="{% static 'images/A10.jpg' %}" alt="Notre équipe" class="diaporama-image">
+    </div>
+    <div class="diaporama-text">
+        <h1>Contactez-nous</h1>
+        <p>Nous sommes à votre écoute</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h3><i class="fas fa-envelope me-2"></i>Envoyez-nous un message</h3>
+                </div>
+                <div class="card-body">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    
+                    <!-- Remplacez tout le contenu du formulaire par : -->
+                    <form method="post" id="contactForm">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Nom complet</label>
+                            <input type="text" class="form-control" name="nom" required>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label">Sujet</label>
+                            <input type="text" class="form-control" name="sujet" required>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" name="message" rows="5" required></textarea>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3><i class="fas fa-map-marker-alt me-2"></i>Nos coordonnées</h3>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h4 class="border-bottom pb-2">Adresse</h4>
+                        <p class="mb-1"><i class="fas fa-building me-2"></i>Bolo District, Charles de Gaulle Avenue</p>
+                        <p><i class="fas fa-city me-2"></i>N'Djamena, Tchad</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="border-bottom pb-2">Contacts</h4>
+                        <p><i class="fas fa-phone me-2"></i>+235 85707095</p>
+                        <p><i class="fas fa-envelope me-2"></i>chadautohouse@gmail.com</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="border-bottom pb-2">Heures d'ouverture</h4>
+                        <p class="mb-1"><i class="fas fa-clock me-2"></i>Lundi - Vendredi: 8h00 - 18h00</p>
+                        <p><i class="fas fa-clock me-2"></i>Samedi: 9h00 - 13h00</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.2604445213238!2d15.043044559263448!3d12.109292526330487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1119612522b88ddd%3A0x9e4c8cdf4b0ef804!2sResidence%20Abdelaziz%20Ahmat%20Taha...Abba%20Dabbagh!5e0!3m2!1sfr!2std!4v1741466172599!5m2!1sfr!2std" 
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .diaporama-text {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+    }
+    #contactForm label {
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+
+ {% block extra_js %}
+ <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        try {
+            const response = await fetch("{% url 'core:contact_api' %}", {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (data.status === 'success') {
+                alert('Message envoyé avec succès!');
+                this.reset();
+            } else {
+                alert('Erreur: ' + (data.message || 'Veuillez vérifier le formulaire'));
+            }
+        } catch (error) {
+            alert('Erreur technique: ' + error.message);
+        }
+    });
+    </script>
+{% endblock %} {% endcomment %}

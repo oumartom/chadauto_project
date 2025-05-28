@@ -1,0 +1,1162 @@
+
+/* Style du header */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00bfff; /* bleu ciel */
+  padding: 10px 20px;
+}
+
+/* Logo + Titre */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 40px; /* Ajuste à ta taille */
+  margin-right: 10px;
+}
+.site-title {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Menu de navigation */
+.header-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header-nav li {
+  margin: 0 10px;
+}
+.header-nav a {
+  color: #000;
+  background-color: #00bfff;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Style du gadget Google Translate */
+.translate-widget {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#google_translate_element select {
+  font-size: 0.9em; /* Réduit la taille de la police */
+  padding: 5px; /* Ajuste l'espace à l'intérieur */
+  border-radius: 4px; /* Pour un effet arrondi */
+  transform-origin: right;
+
+}
+
+
+
+/* Supprimer le fond et la bordure du widget */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+
+
+/* Style général */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background-color: skyblue;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+header nav ul li.dropdown {
+  position: relative;
+}
+
+header nav ul li.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: skyblue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+header nav ul li.dropdown .dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+header nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Diaporama */
+.diaporama {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.diaporama img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.diaporama img.active {
+  opacity: 1;
+}
+
+
+/* Masquer le message de Google Translate */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Masquer le widget de Google Translate */
+.goog-te-combo {
+  display: none !important;
+}
+
+
+/* Style du footer */
+/* Style général du footer */
+footer {
+background-color: #87CEEB; /* Bleu ciel */
+padding: 20px;
+color: #333; /* Couleur du texte */
+font-family: Arial, sans-serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px; /* Espace entre les sections */
+}
+
+/* Section des informations de contact */
+.contact-info {
+display: flex;
+justify-content: space-around; /* Éléments répartis horizontalement */
+width: 100%;
+max-width: 1200px; /* Largeur maximale pour éviter que le footer ne s'étire trop */
+margin-bottom: 20px;
+}
+
+.contact-item {
+display: flex;
+align-items: center;
+gap: 10px; /* Espace entre l'icône et le texte */
+}
+
+.contact-item img {
+width: 24px; /* Taille des icônes */
+height: 24px;
+}
+
+.contact-item p {
+margin: 0; /* Supprime les marges par défaut des paragraphes */
+font-size: 14px;
+}
+
+/* Carte Google Maps */
+.map-container {
+width: 100%; /* Occupe toute la largeur du footer */
+height: 300px; /* Hauteur de la carte */
+margin-bottom: 20px;
+}
+
+.map-container iframe {
+width: 100%;
+height: 100%;
+border: none; /* Supprime la bordure de l'iframe */
+}
+
+/* Logo et nom du site */
+
+/* Logo et nom du site */
+.footer-logo {
+display: flex;
+align-items: center; /* Alignement vertical du logo et du texte */
+justify-content: center; /* Centrage horizontal de l'ensemble */
+gap: 10px; /* Espace entre le logo et le texte */
+width: 100%; /* Occupe toute la largeur */
+margin-bottom: 20px; /* Espace en bas */
+}
+
+.footer-logo img {
+width: 50px; /* Taille du logo */
+height: auto;
+}
+
+.footer-logo span {
+font-size: 18px;
+font-weight: bold;
+white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+/* Politique de confidentialité */
+.privacy-policy {
+text-align: center;
+font-size: 14px;
+margin-top: 20px;
+width: 100%; /* Occupe toute la largeur */
+}
+
+.privacy-policy p {
+margin: 0; /* Supprime les marges par défaut des paragraphes */
+font-weight: bold; /* Texte en gras */
+}
+
+/* Page nav Première section çççççççççççççççççççççççççççççççççççççStyles pour le diaporama en arrière-plan */
+/* Page nav Première section çççççççççççççççççççççççççççççççççççççStyles pour le diaporama en arrière-plan */
+/* Page nav Première section çççççççççççççççççççççççççççççççççççççStyles pour le diaporama en arrière-plan */
+
+/* les images qui s'afficheron dans toutes leurs dimenssion comme les originaux  */
+
+/* Style global pour toutes les images */
+img {
+  max-width: 100%; /* Limite la largeur à 100% du conteneur */
+  height: auto; /* Conserve le ratio hauteur/largeur */
+  object-fit: contain; /* Ajuste l'image sans la couper */
+  display: block; /* Évite les espaces indésirables sous les images */
+  margin: 0 auto; /* Centre l'image horizontalement */
+}
+
+ /* Diaporama */
+.diaporama {
+position: relative;
+width: 100%;
+height: 500px; /* Hauteur fixe pour le diaporama */
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+         /*   background-color: #12303b;   background-color: #000;  Fond noir pour les zones non couvertes par l'image */
+}
+
+.diaporama img {
+width: 100%;
+height: 100%;
+object-fit: contain; /* Ajuste l'image sans la couper */
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+
+.diaporama img.active {
+opacity: 1;
+} 
+
+
+.diaporama-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1; /* Met le texte au premier plan */
+}
+
+.diaporama-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.diaporama-text p {
+  font-size: 1.5rem;
+}
+
+/* Styles pour les sections de contenu centré */
+.content-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center; /* Centrer le texte */
+}
+
+.content-section h2 {
+  color: #4682B4; /* Bleu plus foncé pour les titres */
+  margin-bottom: 20px;
+}
+
+.content-section p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+/* Styles pour les menus déroulants */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333; /* Fond sombre pour un meilleur contraste */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  min-width: 160px; /* Largeur minimale pour éviter un affichage trop étroit */
+}
+
+.dropdown-content li {
+  padding: 10px;
+}
+
+.dropdown-content li a {
+  color: #fff; /* Texte en blanc pour un bon contraste */
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li a:hover {
+  background-color: #555; /* Fond légèrement plus clair au survol */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+/* Page accceuil ççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+/* Page accceuil ççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+/* Page accceuil ççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+
+ 
+/* Styles spécifiques à la page Accueil */
+
+
+/* Styles spécifiques pour les sections avec image de fond */
+
+
+/* Styles spécifiques pour les sections avec image de fond */
+.section-with-bg {
+  background-size: contain; /* Ajuste l'image pour qu'elle soit entièrement visible */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  height: 100vh; /* Occupe 100% de la hauteur de la fenêtre */
+  display: flex;
+  align-items: flex-end; /* Aligne le contenu en bas */
+  justify-content: center; /* Centre horizontalement */
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin-bottom: 20px; /* Espace entre les sections */
+  background-color: #f0f0f0; /* Couleur de fond de secours */
+}
+
+.section-content {
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 50px; /* Espace entre le contenu et le bas de la section */
+  width: 80%; /* Largeur du contenu */
+  max-width: 800px; /* Largeur maximale du contenu */
+}
+
+.section-content h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.section-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.section-content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #87CEEB; /* Bleu ciel */
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.section-content .btn:hover {
+  background-color: #6ca6cd; /* Bleu ciel plus foncé */
+}
+
+/* Formulaire de réservation */
+.reservation-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.reservation-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.reservation-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reservation-form .form-group input[type="text"],
+.reservation-form .form-group input[type="email"],
+.reservation-form .form-group input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.reservation-form .reservation-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reservation-form .reservation-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: normal;
+}
+
+.reservation-form .reservation-options input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.reservation-form .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #87CEEB; /* Bleu ciel */
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.reservation-form .btn:hover {
+  background-color: #6ca6cd; /* Bleu ciel plus foncé */
+}
+
+
+/* Page voitureççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+/* Page voitureççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+/* Page voitureççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+
+
+.voiture-section {
+  padding: 40px 20px;
+  text-align: center; /* Centrer le titre et le contenu */
+}
+
+.voiture-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.voiture-grid {
+  display: flex;
+  justify-content: space-between; /* Espacement égal entre les images */
+  gap: 20px; /* Distance entre les images */
+}
+
+.voiture-item {
+  flex: 1; /* Les images occupent la même largeur */
+  text-align: center;
+}
+
+.voiture-image {
+  width: 100%;
+  max-width: 300px; /* Taille maximale des images */
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer; /* Curseur en forme de main pour indiquer que l'image est cliquable */
+  transition: transform 0.3s ease; /* Animation d'agrandissement */
+}
+
+.voiture-image:hover {
+  transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
+
+.voiture-description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.voiture-prix {
+  font-size: 1.5rem;
+  color: #4682B4; /* Bleu ciel */
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Styles pour l'agrandissement des images */
+.voiture-image.zoomed {
+  transform: scale(1.5); /* Agrandissement de l'image */
+  z-index: 10; /* Met l'image au premier plan */
+  position: relative;
+}
+
+
+
+/* Page appartement ççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+/* Page appartement ççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+/* Page appartement ççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççStyles pour la section des voitures */
+
+/* Styles pour la section des appartements */
+.appartement-section {
+  padding: 40px 20px;
+  text-align: center; /* Centrer le titre et le contenu */
+}
+
+.appartement-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.appartement-grid {
+  display: flex;
+  justify-content: space-between; /* Espacement égal entre les images */
+  gap: 20px; /* Distance entre les images */
+}
+
+.appartement-item {
+  flex: 1; /* Les images occupent la même largeur */
+  text-align: center;
+}
+
+.appartement-image {
+  width: 100%;
+  max-width: 300px; /* Taille maximale des images */
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer; /* Curseur en forme de main pour indiquer que l'image est cliquable */
+  transition: transform 0.3s ease; /* Animation d'agrandissement */
+}
+
+.appartement-image:hover {
+  transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
+
+.appartement-description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.appartement-prix {
+  font-size: 1.5rem;
+  color: #4682B4; /* Bleu ciel */
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Styles pour l'agrandissement des images */
+.appartement-image.zoomed {
+  transform: scale(1.5); /* Agrandissement de l'image */
+  z-index: 10; /* Met l'image au premier plan */
+  position: relative;
+}
+
+
+
+/* Page réservation-voiture çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page réservation-voiture çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page réservation-voiture çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+
+
+/* Styles pour la section de réservation de voitures */
+.reservation-voiture-section {
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.reservation-voiture-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.reservation-voiture-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.reservation-voiture-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Pour éviter que le bouton ne dépasse */
+}
+
+.reservation-voiture-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.reservation-voiture-image:hover {
+  transform: scale(1.05);
+}
+
+/* Bouton de réservation */
+.reservation-voiture-item .reservation-button {
+  display: none; /* Masqué par défaut */
+  background-color: #87CEEB; /* Bleu ciel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 50%; /* Position au milieu de l'image */
+  left: 50%; /* Position au milieu de l'image */
+  transform: translate(-50%, -50%); /* Centrer le bouton */
+  z-index: 5; /* Assurer que le bouton est au-dessus de l'image */
+}
+
+.reservation-voiture-item .reservation-button:hover {
+  background-color: #4682B4; /* Bleu plus foncé au survol */
+}
+
+/* Afficher le bouton au survol ou au clic */
+.reservation-voiture-item:hover .reservation-button,
+.reservation-voiture-item:focus-within .reservation-button {
+  display: block; /* Afficher le bouton */
+}
+
+/* Styles pour le formulaire de réservation */
+.reservation-form {
+  display: none; /* Masqué par défaut */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Met le formulaire au premier plan */
+  width: 80%;
+  max-width: 300px;
+}
+
+.reservation-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reservation-form-content label {
+  font-size: 1rem;
+  color: #333;
+}
+
+.reservation-form-content input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reservation-form-content button {
+  background-color: #87CEEB; /* Bleu ciel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-form-content button:hover {
+  background-color: #4682B4; /* Bleu plus foncé au survol */
+}
+
+
+/* Page réservation-appartement çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page réservation-appartement çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page réservation-appartement çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+
+
+/* Styles spécifiques pour la page Réservation Appartement */
+.reservation-appartement-section {
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.reservation-appartement-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.reservation-appartement-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.reservation-appartement-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Pour éviter que le bouton ne dépasse */
+}
+
+.reservation-appartement-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.reservation-appartement-image:hover {
+  transform: scale(1.05);
+}
+
+/* Bouton de réservation */
+.reservation-appartement-item .reservation-button {
+  display: none; /* Masqué par défaut */
+  background-color: #87CEEB; /* Bleu ciel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 50%; /* Position au milieu de l'image */
+  left: 50%; /* Position au milieu de l'image */
+  transform: translate(-50%, -50%); /* Centrer le bouton */
+  z-index: 5; /* Assurer que le bouton est au-dessus de l'image */
+}
+
+.reservation-appartement-item .reservation-button:hover {
+  background-color: #4682B4; /* Bleu plus foncé au survol */
+}
+
+/* Afficher le bouton au survol ou au clic */
+.reservation-appartement-item:hover .reservation-button,
+.reservation-appartement-item:focus-within .reservation-button {
+  display: block; /* Afficher le bouton */
+}
+
+/* Styles pour le formulaire de réservation */
+
+/* Styles pour le formulaire de réservation */
+.reservation-form {
+  display: none; /* Masqué par défaut */
+  position: absolute; /* Position absolue pour le positionnement sur l'image */
+  top: 50%; /* Position au milieu de l'image */
+  left: 50%; /* Position au milieu de l'image */
+  transform: translate(-50%, -50%); /* Centrer le formulaire */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Met le formulaire au premier plan */
+  width: 80%; /* Largeur du formulaire */
+  max-width: 300px; /* Largeur maximale du formulaire */
+}
+
+.reservation-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reservation-form-content label {
+  font-size: 1rem;
+  color: #333;
+}
+
+.reservation-form-content input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reservation-form-content button {
+  background-color: #87CEEB; /* Bleu ciel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-form-content button:hover {
+  background-color: #4682B4; /* Bleu plus foncé au survol */
+}
+
+/* Page réservation-les-deux çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page réservation-les-deux çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page réservation-les-deux çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+
+
+/* Styles pour la section de réservation combinée */
+.reservation-combined-section {
+  padding: 40px 20px;
+  text-align: center; /* Centrer le titre et le contenu */
+  margin-top: 40px; /* Petite distance entre les sections */
+}
+
+.reservation-combined-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reservation-combined-form label {
+  font-size: 1rem;
+  color: #333;
+  display: block;
+  margin-top: 10px;
+}
+
+.reservation-combined-form input,
+.reservation-combined-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.reservation-combined-form button {
+  background-color: #87CEEB; /* Bleu ciel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-combined-form button:hover {
+  background-color: #4682B4; /* Bleu plus foncé au survol */
+}
+
+
+/* Page contact çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page contact çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page contact çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+
+
+
+
+/* FAQ */
+.faq {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  margin: 0;
+  color: #87CEEB; /* Bleu ciel */
+}
+
+.toggle-icon {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.faq-answer {
+  padding: 10px;
+  background-color: #fff;
+  display: none; /* Masqué par défaut */
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+/* Afficher la réponse lorsque la question est active */
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* Formulaire de contact */
+.contact-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background-color: #87CEEB;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #6ca6c1;
+}
+
+/* Informations de contact */
+.contact-info {
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Carte Google Maps */
+.map {
+  margin: 20px 0;
+}
+
+/* Espacement entre les sections */
+section {
+  margin-bottom: 40px;
+}
+
+
+
+
+/* Styles pour le widget Google Translate */
+.goog-te-banner-frame {
+  display: none; /* Masque la bannière Google */
+}
+
+.goog-te-menu-value {
+  color: #000; /* Couleur du texte */
+  font-size: 16px; /* Taille du texte */
+  cursor: pointer;
+}
+
+.goog-te-menu-value span {
+  color: #87CEEB; /* Couleur du texte (bleu ciel) */
+}
+
+.goog-te-menu-value:hover {
+  text-decoration: underline; /* Soulignement au survol */
+}
+
+/* Masquer le logo Google */
+.goog-logo-link {
+  display: none !important;
+}
+
+/* Masquer le texte "Traduire" */
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+
+
+
+/* =============Application de l'écran sur chaque type d'appareil ààààààààà===================================== */
+/* =============Application de l'écran sur chaque type d'appareil ààààààààà===================================== */
+/* =============Application de l'écran sur chaque type d'appareil ààààààààà===================================== */
+
+/* ================================================== */
+/* Media Queries pour le Responsive Design */
+/* ================================================== */
+
+/* Styles pour les mobiles (écrans de moins de 767px) */
+@media (max-width: 767px) {
+  header {
+    flex-direction: column; /* Empiler les éléments du header */
+    padding: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px; /* Espace entre le logo et la navigation */
+  }
+
+  nav ul {
+    flex-direction: column; /* Empiler les éléments de la navigation */
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0; /* Espace entre les éléments de la navigation */
+  }
+
+  .diaporama {
+    height: 300px; /* Réduire la hauteur du diaporama */
+  }
+
+  .voiture-grid,
+  .appartement-grid,
+  .reservation-voiture-grid,
+  .reservation-appartement-grid {
+    flex-direction: column; /* Empiler les éléments */
+  }
+
+  .voiture-item,
+  .appartement-item,
+  .reservation-voiture-item,
+  .reservation-appartement-item {
+    margin-bottom: 20px; /* Espace entre les éléments */
+  }
+
+  .reservation-form {
+    width: 90%; /* Adapter la largeur du formulaire */
+    max-width: none; /* Supprimer la largeur maximale */
+  }
+}
+
+/* Styles pour les tablettes (écrans de 768px à 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  header {
+    padding: 15px;
+  }
+
+  .diaporama {
+    height: 400px; /* Ajuster la hauteur du diaporama */
+  }
+
+  .voiture-grid,
+  .appartement-grid,
+  .reservation-voiture-grid,
+  .reservation-appartement-grid {
+    flex-wrap: wrap; /* Permettre le retour à la ligne */
+  }
+
+  .voiture-item,
+  .appartement-item,
+  .reservation-voiture-item,
+  .reservation-appartement-item {
+    flex: 1 1 45%; /* Deux éléments par ligne */
+    margin-bottom: 20px; /* Espace entre les éléments */
+  }
+}
+
+/* Styles pour les ordinateurs (écrans de 1024px et plus) */
+@media (min-width: 1024px) {
+  /* Aucun changement nécessaire, les styles actuels sont déjà adaptés */
+}
+
+/* Page langues çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page langues çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */
+/* Page langues çççççççççççççççççççççççççççççççççççççStyles pour la section de réservation de voitures */

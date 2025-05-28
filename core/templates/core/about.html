@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - ChadAuto&House Rental{% endblock %}
+
+{% block diaporama %}
+<section class="diaporama-section">
+    <div class="diaporama">
+        <img src="{% static 'images/10-removebg-preview.png' %}" alt="About image 1" class="diaporama-image active">
+        <img src="{% static 'images/A1.jpeg' %}" alt="About image 2" class="diaporama-image">
+        <img src="{% static 'images/19-removebg-preview.png' %}" alt="About image 3" class="diaporama-image">
+    </div>
+    {% comment %} <div class="diaporama-text">
+        <h1>About ChadAuto&House Rental</h1>
+        <p>Discover our story, mission and values</p>
+    </div> {% endcomment %}
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <!-- Notre Histoire -->
+            <section class="mb-5">
+                <h2 class="mb-4 border-bottom pb-2">Our Story</h2>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="{% static 'images/Kanem-removebg-preview.png' %}" alt="Our story" class="img-fluid rounded mb-3">
+                    </div>
+                    <div class="col-md-6">
+                        <p class="lead">Welcome to Chad Auto & House Rentals, your premier destination for reliable and affordable rental services in Chad.</p>
+                        <p>Founded in 2023, we've grown from a small local business to the leading rental service provider in the region.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nos Services -->
+            <section class="mb-5">
+                <h2 class="mb-4 border-bottom pb-2">Our Services</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4><i class="fas fa-car me-2"></i> Auto Rentals</h4>
+                                <ul class="mt-3">
+                                    <li>Sedans for city driving</li>
+                                    <li>SUVs for family trips</li>
+                                    <li>4x4 for off-road adventures</li>
+                                    <li>With or without driver</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4><i class="fas fa-home me-2"></i> House Rentals</h4>
+                                <ul class="mt-3">
+                                    <li>Modern apartments</li>
+                                    <li>Family houses</li>
+                                    <li>Short and long term</li>
+                                    <li>Fully furnished</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notre Engagement -->
+            <section class="mb-5">
+                <h2 class="mb-4 border-bottom pb-2">Our Commitment</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="text-center p-3 border rounded h-100">
+                            <i class="fas fa-check-circle fa-3x text-primary mb-3"></i>
+                            <h5>Quality Vehicles</h5>
+                            <p>Regularly maintained and inspected</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center p-3 border rounded h-100">
+                            <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                            <h5>24/7 Support</h5>
+                            <p>Always available for our customers</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center p-3 border rounded h-100">
+                            <i class="fas fa-hand-holding-usd fa-3x text-primary mb-3"></i>
+                            <h5>Fair Pricing</h5>
+                            <p>No hidden fees or charges</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .diaporama-text {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+    }
+    .border-bottom {
+        border-color: #0d6efd !important;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animation spécifique à la page About
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateElements = () => {
+            const elements = document.querySelectorAll('.card, .text-center');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate__animated', 'animate__fadeInUp');
+                }, 100 * index);
+            });
+        };
+        
+        // Délai pour laisser le diaporama charger
+        setTimeout(animateElements, 500);
+    });
+</script>
+{% endblock %}
