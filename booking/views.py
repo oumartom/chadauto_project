@@ -63,7 +63,7 @@ def reserve_both(request):
         if form.is_valid():
             reservation = form.save()
             send_reservation_email(reservation)
-            messages.success(request, "Votre réservation a été enregistrée avec succès!")
+            messages.success(request, "Your reservation has been successfully completed. A team member will contact you shortly!")
             return redirect('core:home')
     else:
         # Pré-remplir depuis les paramètres GET si disponibles

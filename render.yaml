@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: chadauto
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn chadauto_project.wsgi"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: chadauto-db
+          property: connectionString
+
+databases:
+  - name: chadauto-db

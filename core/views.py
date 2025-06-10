@@ -101,7 +101,7 @@ def contact(request):
                     fail_silently=False,
                 )
                 print("success!")  # Debug
-                messages.success(request, "success!")
+                messages.success(request, "Thank you for contacting us. We will get back to you within minutes.")
                 return redirect('core:contact')
             except Exception as e:
                 print("Erreur d'envoi:", str(e))  # Debug
