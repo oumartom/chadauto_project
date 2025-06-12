@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-votre-clé-secrète-ici'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']  # Temporairement
 CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app']  # Sécurité
@@ -124,6 +124,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Pour Render uniquement
+if 'RENDER' in os.environ:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+    os.makedirs(MEDIA_ROOT, exist_ok=True)
+#configuration necessaire pour render 
 
 # Configuration temporaire pour le débogage
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
