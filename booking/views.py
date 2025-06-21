@@ -120,7 +120,7 @@ def send_reservation_email(reservation):
         subject,
         message,
         settings.DEFAULT_FROM_EMAIL,
-        ['oumartom45@gmail.com'],  # Email du destinataire
+        ['chadauto.housing@gmail.com'],  # Email du destinataire
         fail_silently=False,
     )
 
@@ -150,7 +150,7 @@ def send_combined_reservation_email(reservation):
         subject,
         message,
         settings.DEFAULT_FROM_EMAIL,
-        ['oumartom45@gmail.com'],  # Email de destination
+        ['chadauto.housing@gmail.com'],  # Email de destination
         fail_silently=False,
     )
 # def send_reservation_email(reservation):

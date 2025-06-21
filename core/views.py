@@ -42,7 +42,7 @@ def contact_api(request):
                     subject=f"Contact: {form.cleaned_data['sujet']}",
                     message=f"Message de {form.cleaned_data['nom']}",
                     from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=['oumartom45@gmail.com'],
+                    recipient_list=['chadauto.housing@gmail.com'],
                 )
                 return JsonResponse({'status': 'success'})
             except Exception as e:
@@ -71,7 +71,7 @@ def contact_api(request):
                 subject=f"Contact: {form.cleaned_data['sujet']}",
                 message=f"De: {form.cleaned_data['nom']}\nEmail: {form.cleaned_data['email']}\n\nMessage:\n{form.cleaned_data['message']}",
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['oumartom45@gmail.com'],
+                recipient_list=['chadauto.housing@gmail.com'],
                 fail_silently=False,
             )
             print("Email envoyé avec succès!")
@@ -97,7 +97,7 @@ def contact(request):
                     subject=f"Contact: {form.cleaned_data['sujet']}",
                     message=f"De: {form.cleaned_data['nom']} <{form.cleaned_data['email']}>\n\nMessage:\n{form.cleaned_data['message']}",
                     from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=['oumartom45@gmail.com'],
+                    recipient_list=['chadauto.housing@gmail.com'],
                     fail_silently=False,
                 )
                 print("success!")  # Debug
@@ -135,7 +135,7 @@ def send_contact_email(message):
         admin_subject,
         admin_message,
         settings.DEFAULT_FROM_EMAIL,
-        ['oumartom45@gmail.com'],  # Email de destination
+        ['chadauto.housing@gmail.com'],  # Email de destination
         fail_silently=False,
     )
     

@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Solution définitive pour le titre -->
     <title data-no-translate>{% block title %}ChadAuto&House Rental{% endblock %}</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-    <!-- Protection renforcée contre Google Translate -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<!-- Protection renforcée contre Google Translate -->
     <script>
     // Solution 1: Protection immédiate du titre
     document.title = "ChadAuto&House Rental";
@@ -44,6 +42,19 @@
         }
     </script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
+{% comment %} <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,fr,zh,ar,es,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> {% endcomment %}
 
     <style>
         #google_translate_element select {
@@ -52,6 +63,7 @@
             border-radius: 4px;
         }
         
+        /* Styles pour le diaporama */
         .diaporama {
             position: relative;
             width: 100%;
@@ -90,8 +102,8 @@
 <body onload="initLanguageSelector()">
     <header>
         <div class="logo">
-            <img src="{% static 'images/k.png' %}" alt="Logo du site" translate="no">
-            <h1 translate="no">ChadAuto&House Rental</h1>
+            <img src="{% static 'images/k.png' %}" alt="Logo du site">
+            <h1>ChadAuto&House Rental</h1>
         </div>
         <nav>
             <ul>
@@ -122,37 +134,19 @@
         <!-- Google Translate Widget -->
         <div id="google_translate_element" class="translate-widget"></div>
     </header>
-    
+
     <main>
         {% block diaporama %}
         <!-- Section Diaporama -->
-        <section class="diaporama-section"> 
+        <section class="diaporama-section">
             <div class="diaporama">
-                <img src="{% static 'images/A1.jpeg' %}" alt="Image 1" class="diaporama-image active">
-                <img src="{% static 'images/29.png' %}" alt="Image 2" class="diaporama-image">
-                <img src="{% static 'images/M1.jpeg' %}" alt="Image 3" class="diaporama-image">
-                <img src="{% static 'images/1.png' %}" alt="Image 4" class="diaporama-image">
-                <img src="{% static 'images/M3.jpeg' %}" alt="Image 5" class="diaporama-image">
-                <img src="{% static 'images/29.png' %}" alt="Image 6" class="diaporama-image">
-                <img src="{% static 'images/M6.jpeg' %}" alt="Image 7" class="diaporama-image">
-                <img src="{% static 'images/11.png' %}" alt="Image 8" class="diaporama-image">
-                <img src="{% static 'images/20.png' %}" alt="Image 9" class="diaporama-image">
-                <img src="{% static 'images/M2.jpeg' %}" alt="Image 10" class="diaporama-image">
-                <img src="{% static 'images/25.png' %}" alt="Image 11" class="diaporama-image">
-                <img src="{% static 'images/M5.jpeg' %}" alt="Image 12" class="diaporama-image">
-                <img src="{% static 'images/30.png' %}" alt="Image 13" class="diaporama-image">
-                <img src="{% static 'images/M4.jpeg' %}" alt="Image 14" class="diaporama-image">
-                <img src="{% static 'images/7.jpg' %}" alt="Image 15" class="diaporama-image">
-                <img src="{% static 'images/M3.jpeg' %}" alt="Image 16" class="diaporama-image">
-                <img src="{% static 'images/GV2.jpg' %}" alt="Image 17" class="diaporama-image">
-                <img src="{% static 'images/M8.jpeg' %}" alt="Image 18" class="diaporama-image">
-                <img src="{% static 'images/19.png' %}" alt="Image 18" class="diaporama-image">
-                <img src="{% static 'images/M10.jpeg' %}" alt="Image 20" class="diaporama-image">
-                <img src="{% static 'images/22.png' %}" alt="Image 21" class="diaporama-image">
-                <img src="{% static 'images/M1.jpeg' %}" alt="Image 22" class="diaporama-image"> 
-                <img src="{% static 'images/29.png' %}" alt="Image 21" class="diaporama-image">
+                <img src="{% static 'images/20-removebg-preview.png' %}" alt="Image 1" class="diaporama-image active">
+                <img src="{% static 'images/A1.jpeg' %}" alt="Image 2" class="diaporama-image">
+                <img src="{% static 'images/10-removebg-preview.png' %}" alt="Image 3" class="diaporama-image">
+                <img src="{% static 'images/A1.jpeg' %}" alt="Image 4" class="diaporama-image">
+                <img src="{% static 'images/19-removebg-preview.png' %}" alt="Image 5" class="diaporama-image">
+                <img src="{% static 'images/A13.jpeg' %}" alt="Image 6" class="diaporama-image">
             </div>
-
         </section>
         {% endblock %}
 
@@ -172,7 +166,7 @@
 
         {% comment %} {% block faq %}
         <!-- Section FAQ -->
-        <section class="section-with-bg" style="background-image: url('{% static 'images/18.png' %}');">
+        <section class="section-with-bg" style="background-image: url('{% static 'images/10-removebg-preview.png' %}');">
             <div class="section-content">
                 <h2>Frequently Asked Questions (FAQ)</h2>
                 <div class="faq-item">
@@ -210,7 +204,7 @@
             <div class="contact-item">
                 <img src="{% static 'images/mail.jpg' %}" alt="Email">
                 <p>Email: </p>
-                <p>chadauto.housing@gmail.com</p>
+                <p>chadautohouse@gmail.com</p>
             </div>
         </div>
 
@@ -220,7 +214,7 @@
 
         <div style="display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 20px;">
             <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="{% static 'images/k.png' %}" alt="Logo" style="width: 50px; height: auto;">
+                <img src="{% static 'images/Kanem-removebg-preview.png' %}" alt="Logo" style="width: 50px; height: auto;">
                 <span style="font-size: 18px; font-weight: bold; white-space: nowrap;">ChadAuto&House Rental</span>
             </div>
         </div>
@@ -233,8 +227,11 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript">
-    // Gestion de la traduction
+    {% comment %} <script src="{% static 'js/rental.js' %}"></script> {% endcomment %}
+    
+    <script type="text/javascript">
+        // Gestion de la traduction
+        // Gestion de la traduction
     function saveLanguageSelection(language) {
         localStorage.setItem('selectedLanguage', language);
     }
@@ -269,22 +266,25 @@
         }
     }
 
-    // Script pour le diaporama
-    document.addEventListener('DOMContentLoaded', function() {
-        const images = document.querySelectorAll('.diaporama-image');
-        let currentIndex = 0;
-        
-        function showNextImage() {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add('active');
-        }
-        
-        setInterval(showNextImage, 5000);
-        initLanguageSelector();
-    });
-</script>
 
+        // Script pour le diaporama
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialisation du diaporama
+            const images = document.querySelectorAll('.diaporama-image');
+            let currentIndex = 0;
+            
+            function showNextImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+            
+            // Change d'image toutes les 5 secondes
+            setInterval(showNextImage, 5000);
+            
+            // Initialisation du sélecteur de langue
+            initLanguageSelector();
+        });
+    </script>
+    
     {% block extra_scripts %}{% endblock %}
-</body>
-</html>
