@@ -38,7 +38,7 @@ class Reservation(models.Model):
     appartement = models.ForeignKey('Appartement', on_delete=models.CASCADE, null=True, blank=True)
     
     date_debut = models.DateField(validators=[MinValueValidator(timezone.now().date())])
-    date_fin = models.DateField()
+    date_fin = models.DateField(null=True, blank=True)
     message = models.TextField(blank=True)
     date_reservation = models.DateTimeField(auto_now_add=True)
     

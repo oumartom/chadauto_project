@@ -75,9 +75,9 @@ WSGI_APPLICATION = 'chadauto_project.wsgi.application'
 # Database
 import environ
 env = environ.Env()
-# DATABASES = {
-#     'default': dj_database_url.parse(env('DATABASE_URL'))
-# }
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+}
 
 # Configuration du backend de stockage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -97,12 +97,12 @@ CLOUDINARY_STORAGE = {
 #         'PORT': env('DB_PORT', default='5432'),
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -151,7 +151,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'chadauto.housing@gmail.com'
-EMAIL_HOST_PASSWORD = 'mmtv kaae xjch qdie'
+EMAIL_HOST_PASSWORD = 'mmtv kaae xjch qdie'
 DEFAULT_FROM_EMAIL = 'chadauto.housing@gmail.com'
 
 # Ajoutez pour voir les communications SMTP

@@ -31,14 +31,16 @@ class ReservationForm(forms.ModelForm):
         vehicule = cleaned_data.get('vehicule')
         appartement = cleaned_data.get('appartement')
         
+        # Vérifier qu'au moins un objet (véhicule ou appartement) est sélectionné
         if not vehicule and not appartement:
-            raise ValidationError("Vous devez sélectionner au moins un véhicule ou un appartement")
-        
-        if date_debut and date_fin:
-            if date_debut > date_fin:
-                raise ValidationError("La date de fin doit être postérieure à la date de début")
-            if date_debut < timezone.now().date():
-                raise ValidationError("La date de début ne peut pas être dans le passé")
-        
-        return cleaned_data
+            raise ValidationError("Vous devez sélectionner au moins un véhicule ou un appartement.")
 
+        # Vérification sur les dates
+        if date_debut:
+            if date_debut < timezone.now().date():
+                raise ValidationError("La date de début ne peut pas être dans le passé.")
+
+            if date_fin and date_debut > date_fin:
+                raise ValidationError("La date de fin doit être postérieure à la date de début.")
+
+            return cleaned_data
