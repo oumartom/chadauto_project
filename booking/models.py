@@ -2,27 +2,29 @@ from django.db import models
 from django.urls import reverse
 from django.core.validators import MinValueValidator
 from django.utils import timezone
-
+from django.urls import reverse
+from cloudinary.models import CloudinaryField  # Ajout important
 class Vehicule(models.Model):
     nom = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='vehicules/')
-    
+    image = CloudinaryField('image')  # Utilisation de Cloudinary pour l'image
+
     def __str__(self):
         return self.nom
-    
+
     def get_absolute_url(self):
         return reverse('booking:car_detail', args=[str(self.id)])
 
+
 class Appartement(models.Model):
     nom = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='appartements/')
-    
+    image = CloudinaryField('image')  # Utilisation de Cloudinary
+
     def __str__(self):
         return self.nom
-    
+
     def get_absolute_url(self):
         return reverse('booking:apartment_detail', args=[str(self.id)])
-    
+
 
 from django.db import models
 from django.core.validators import MinValueValidator

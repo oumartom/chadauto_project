@@ -5,6 +5,7 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import cloudinary_storage
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -139,11 +140,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Pour Render uniquement
-if 'RENDER' in os.environ:
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-    os.makedirs(MEDIA_ROOT, exist_ok=True)
+
 #configuration necessaire pour render 
 
 # Configuration temporaire pour le débogage
